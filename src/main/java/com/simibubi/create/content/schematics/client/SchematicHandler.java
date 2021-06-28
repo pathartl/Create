@@ -219,15 +219,41 @@ public class SchematicHandler {
 	public void onKeyInput(int key, boolean pressed) {
 		if (!active)
 			return;
-		if (key != AllKeys.TOOL_MENU.getBoundCode())
-			return;
 
-		if (pressed && !selectionScreen.focused)
-			selectionScreen.focused = true;
-		if (!pressed && selectionScreen.focused) {
-			selectionScreen.focused = false;
-			selectionScreen.onClose();
+		if (key == AllKeys.SCHEMATIC_MOVE_X_POS.getBoundCode()) {
+			move(1, 0, 0);
 		}
+		else if (key == AllKeys.SCHEMATIC_MOVE_X_NEG.getBoundCode()) {
+			move(-1, 0, 0);
+		}
+		else if (key == AllKeys.SCHEMATIC_MOVE_Z_POS.getBoundCode()) {
+			move(0, 0, 1);
+		}
+		else if (key == AllKeys.SCHEMATIC_MOVE_Z_NEG.getBoundCode()) {
+			move(0, 0, -1);
+		}
+		else if (key == AllKeys.SCHEMATIC_MOVE_Y_POS.getBoundCode()) {
+			move(0, 1, 0);
+		}
+		else if (key == AllKeys.SCHEMATIC_MOVE_Y_NEG.getBoundCode()) {
+			move(0, -1, 0);
+		}
+		else if (key == AllKeys.SCHEMATIC_ROTATE_CW.getBoundCode()) {
+			rotate90(true);
+		}
+		else if (key == AllKeys.SCHEMATIC_ROTATE_CCW.getBoundCode()) {
+			rotate90(false);
+		}
+		else if (key == AllKeys.TOOL_MENU.getBoundCode()) {
+			if (pressed && !selectionScreen.focused)
+				selectionScreen.focused = true;
+			if (!pressed && selectionScreen.focused) {
+				selectionScreen.focused = false;
+				selectionScreen.onClose();
+			}
+		}
+
+		return;
 	}
 
 	public boolean mouseScrolled(double delta) {
@@ -242,6 +268,22 @@ public class SchematicHandler {
 			return currentTool.getTool()
 				.handleMouseWheel(delta);
 		return false;
+	}
+
+	private void move(int x, int y, int z) {
+		SchematicTransformation transformation = getTransformation();
+
+		transformation.move((float)x, (float)y, (float)z);
+
+		markDirty();
+	}
+
+	private void rotate90(boolean clockwise) {
+		SchematicTransformation transformation = getTransformation();
+
+		transformation.rotate90(clockwise);
+
+		markDirty();
 	}
 
 	private ItemStack findBlueprintInHand(PlayerEntity player) {

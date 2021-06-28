@@ -10,6 +10,14 @@ import net.minecraftforge.fml.client.registry.ClientRegistry;
 public enum AllKeys {
 
 	TOOL_MENU("toolmenu", GLFW.GLFW_KEY_LEFT_ALT),
+	SCHEMATIC_MOVE_X_POS("schematicXPositive", GLFW.GLFW_KEY_KP_8),
+	SCHEMATIC_MOVE_X_NEG("schematicXNegative", GLFW.GLFW_KEY_KP_2),
+	SCHEMATIC_MOVE_Z_POS("schematicZPositive", GLFW.GLFW_KEY_KP_6),
+	SCHEMATIC_MOVE_Z_NEG("schematicZNegative", GLFW.GLFW_KEY_KP_4),
+	SCHEMATIC_MOVE_Y_POS("schematicYPositive", GLFW.GLFW_KEY_KP_ADD),
+	SCHEMATIC_MOVE_Y_NEG("schematicYNegative", GLFW.GLFW_KEY_KP_SUBTRACT),
+	SCHEMATIC_ROTATE_CW("schematicRotateCW", GLFW.GLFW_KEY_KP_9),
+	SCHEMATIC_ROTATE_CCW("schematicRotateCCW", GLFW.GLFW_KEY_KP_7),
 	ACTIVATE_TOOL("", GLFW.GLFW_KEY_LEFT_CONTROL),
 
 	;

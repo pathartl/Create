@@ -747,6 +747,14 @@
 	"create.action.discard": "Discard",
 
 	"create.keyinfo.toolmenu": "Focus Tool Menu",
+	"create.keyinfo.schematicXPositive": "Move Schematic +X",
+	"create.keyinfo.schematicXNegative": "Move Schematic -X",
+	"create.keyinfo.schematicZPositive": "Move Schematic +Z",
+	"create.keyinfo.schematicZNegative": "Move Schematic -Z",
+	"create.keyinfo.schematicYPositive": "Move Schematic +Y",
+	"create.keyinfo.schematicYNegative": "Move Schematic -Y",
+	"create.keyinfo.schematicRotateCW": "Rotate Schematic Clockwise",
+	"create.keyinfo.schematicRotateCCW": "Rotate Schematic Counter-Clockwise",
 	"create.keyinfo.scrollup": "Simulate Mousewheel Up (inworld)",
 	"create.keyinfo.scrolldown": "Simulate Mousewheel Down (inworld)",
 
